@@ -1,0 +1,143 @@
+/* Stores reusable site-wide color variables and a fallback variable*/
+:root {
+    --page-bg: hsl(177, 10%, 60%);
+    --main-text: #3d1d1d;
+    --accent-rgb: rgb(43, 105, 12);
+    --accent-rgba: rgba(15, 80, 134, 0.2);
+    --named-color: purple;
+    --mixed-color: color-mix(in srgb, orange 60%, white 40%);
+    --fallback-color: var(--not-defined, turquoise);
+}
+/* Styles the entire page background, text color and overall spacing */
+body {
+    background-color: var(--page-bg, white);
+    color: var(--main-text, black);
+    padding: 1rem;
+    font-family: "Inter", sans-serif;
+}
+/* Styles the main heading colors, and also centers and underlines it */
+h1 {
+    color: var(--fallback-color);
+    text-align: center;
+    text-decoration: underline;
+}
+/* Uses the accent rgb color to color all h2 headings */
+h2 {
+    color: var(--accent-rgb);
+}
+/* Uses the named color to color all h3 headings */
+h3 {
+    color: var(--named-color);
+}
+/* Chnages the paragraph text color */
+p {
+    color: #5e1313;
+}
+/* Styles the top header with color, spacing, border and positioning */
+header {
+    background-color: var(--accent-rgba);
+    border: 2px solid var(--mixed-color);
+
+    margin-top: 12px;
+    margin-right: 16px;
+    margin-bottom: 12px;
+    margin-left: 16px;
+
+    padding-top: 10px;
+    padding-right: 14px;
+    padding-bottom: 10px;
+    padding-left: 14px;
+
+    border-style: solid;
+    border-color: #6b7280;
+    border-width: 2px;
+    border-radius: 10px;
+
+    position: sticky;
+    top: 0;
+}
+/* Styles each section with a white background, spacing, and rounded border */
+section {
+    background-color: #ffffff;
+    margin: 1em 0;
+    padding: 12px;
+    border: 2px solid rgb(43, 105, 12);
+    border-radius: 8px;
+}
+/* Makes audio player use 80% of the container width */
+audio {
+    width: 80%;
+}
+/* Initializes the image width with inches */
+img {
+    width: 3in;
+}
+/* Initializes the video with with pixels */
+video {
+    width: 320px;
+}
+/* Adds a top border to the footer */
+footer {
+    border-top: 5mm solid #222222;
+}
+/* Main content area is centered with auto margins */
+main {
+    margin: auto;
+}
+/* Has nav links behave like inline blocks */
+nav a {
+    display: inline-block;
+}
+/* Has audio and video elements appear as block elements */
+audio,
+video {
+    display: block;
+}
+/* Modifies size limits of the text area */
+textarea {
+    height: 100px;
+    width: 100%;
+    max-width: 500px;
+    min-width: 200px;
+}
+/* Provides attendance section a relative positioning context */
+#attendance {
+    position: relative;
+}
+/* Modifies nav link background color when hovered */
+nav a:hover {
+    background-color: #a7bad3;
+}
+/* Slightly shirnks button when pressed */
+button:active {
+    transform: scale(0.98);
+}
+/* Utilizes flexbox to lay out nav links with spacing and wrapping */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+/* Utilizes grid layout to set uo form elements in three columns */
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+}
+/* Adjusts layout for smaller screens */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    fieldset {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 0.5rem;
+    }
+}
